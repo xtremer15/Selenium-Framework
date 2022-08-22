@@ -1,0 +1,6 @@
+Config\CucumberSpringConfiguration.class
+Hooks\Hooks.class
+Pages\LoginPage.class
+Steps\LoginStep.class
+runner\TestRunner.class
+Config\Config.class
