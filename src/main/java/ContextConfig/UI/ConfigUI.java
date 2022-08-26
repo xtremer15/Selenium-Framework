@@ -1,4 +1,4 @@
-package ConfigUI;
+package ContextConfig.UI;
 
 import HTMLElements.Button;
 import Pages.CartPage;
@@ -8,21 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.*;
 
 
 @Configuration
+//@ConditionalOnProperty(name = "ui.runner.enabled", havingValue = "true")
 public class ConfigUI {
-
-    @Bean
-    @Lazy
-    @Scope("cucumber-glue")
-    JavascriptExecutor javascriptExecutor() {
-        return (JavascriptExecutor) webDriver();
-    }
 
     @Bean
     @Lazy
@@ -31,6 +23,14 @@ public class ConfigUI {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
+
+    @Bean
+    @Lazy
+    @Scope("cucumber-glue")
+    JavascriptExecutor javascriptExecutor() {
+        return (JavascriptExecutor) webDriver();
+    }
+
 
     @Bean
     @Lazy
@@ -61,4 +61,5 @@ public class ConfigUI {
     CartPage cartPage() {
         return new CartPage();
     }
+
 }

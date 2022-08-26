@@ -1,4 +1,4 @@
-package ConfigAPI;
+package ContextConfig.API;
 
 import Services.Service;
 import org.springframework.context.annotation.Bean;

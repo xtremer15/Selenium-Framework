@@ -1,6 +1,7 @@
 package Steps;
 
 import Pages.CartPage;
+import Pages.LoginPage;
 import io.cucumber.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 

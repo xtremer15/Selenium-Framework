@@ -1,4 +1,4 @@
-package ConfigUI;
+package ContextConfig.UI;
 
 import Annotations.CheckElementVisibility;
 import Interfaces.Page;
@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
 public abstract class BasePage implements Page {
-
     public WebDriverWait webDriverWait;
     @Autowired
     private WebDriver driver;

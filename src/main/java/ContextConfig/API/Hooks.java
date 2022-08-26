@@ -1,11 +1,9 @@
-package ConfigAPI;
+package ContextConfig.API;
 
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-
-import java.net.URL;
 
 @PropertySource("classpath:application.properties")
 public class Hooks {
@@ -17,7 +15,6 @@ public class Hooks {
 
     @Before
     public void setup() {
-        System.out.println("baseUrl este=> " + this.baseURL);
         RestAssured.baseURI = baseURL;
         RestAssured.basePath = basePath;
     }

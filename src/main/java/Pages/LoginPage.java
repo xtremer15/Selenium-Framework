@@ -50,9 +50,9 @@ public class LoginPage extends BasePage {
 
     public void clickContactUs() {
         System.out.println("Salut am printat ceva din methoda ContactUsClick()");
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        this.webDriverWait.until(driver -> searchTxt.isDisplayed());
-        pageElement(contact).click();
+//        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+//        this.webDriverWait.until(driver -> searchTxt.isDisplayed());
+//        pageElement(contact).click();
         driver.findElement(contact).click();
     }
 
