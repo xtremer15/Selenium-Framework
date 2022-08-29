@@ -2,7 +2,8 @@ package Pages;
 
 
 import ContextConfig.UI.BasePage;
-import Utils.WrapperElement;
+import Utils.Interfaces.Button;
+import Utils.Interfaces.Implementation.ButtonEle;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,7 +20,10 @@ public class LoginPage extends BasePage {
     JavascriptExecutor javascriptExecutor;
 
     @FindBy(id = "search_query_top")
-    WrapperElement searchInput;
+    WebElement searchInput;
+
+    @FindBy(css = "#contact-link > a")
+    ButtonEle contactBtn;
 
     @FindBy(css = "#homefeatured li")
     private List<WebElement> productsList;
@@ -31,6 +35,7 @@ public class LoginPage extends BasePage {
     public WebElement checkElementIsVisible(By element) {
         return webDriverWait.until(ExpectedConditions.presenceOfElementLocated(element));
     }
+
 
     public void clickElement(By element) {
         //Fie Sa adaug adnotatia deasupra metodei inlantuite mai jos
@@ -57,8 +62,8 @@ public class LoginPage extends BasePage {
     }
 
 
-    public void searchText(String searchTerm) {
-        searchInput.simulateUserTyping(searchTerm);
+    public void clickContact() {
+        contactBtn.click();
     }
 
     public void showListSize() {

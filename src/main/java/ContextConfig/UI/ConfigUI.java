@@ -61,10 +61,4 @@ public class ConfigUI {
         return new CartPage();
     }
 
-    @Bean
-    @Lazy
-    @Scope("cucumber-glue")
-    LogPage logPage() {
-        return new LogPage();
-    }
 }

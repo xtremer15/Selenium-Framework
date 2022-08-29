@@ -1,7 +1,7 @@
 package ContextConfig.UI;
 
-import API.ControlFactory;
 import Interfaces.Page;
+import Utils.factory.ExtendedPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage implements Page {
@@ -19,12 +20,20 @@ public abstract class BasePage implements Page {
     private WebDriver driver;
 
     @PostConstruct
-    private void init() {
-//        PageFactory.initElements(driver, this);
-        ControlFactory.initElements(driver, this);
+    private void init() throws Exception {
+        ExtendedPageFactory.initElements(this.getDriver(), this);
         webDriverWait = new WebDriverWait(driver, 15);
-        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
     }
+
+    public WebDriver getDriver() {
+        if (this.driver != null) {
+            return this.driver;
+        } else {
+            return null;
+        }
+    }
+
 
 //    @Override
 //    public void simulateUserTyping(String textToType) {
