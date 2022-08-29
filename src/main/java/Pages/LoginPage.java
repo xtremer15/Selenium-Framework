@@ -1,18 +1,14 @@
 package Pages;
 
 
-
-import ConfigUI.BasePage;
-import lombok.SneakyThrows;
+import ContextConfig.UI.BasePage;
+import Utils.WrapperElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 
 public class LoginPage extends BasePage {
@@ -23,13 +19,13 @@ public class LoginPage extends BasePage {
     JavascriptExecutor javascriptExecutor;
 
     @FindBy(id = "search_query_top")
-    WebElement searchTxt;
+    WrapperElement searchInput;
 
     @FindBy(css = "#homefeatured li")
     private List<WebElement> productsList;
 
     private By contact = By.cssSelector("#contact-link > a");
-    private By searchInput = By.id("search_query_top");
+    private By searchInpt = By.id("search_query_top");
 
     //Aceasta este metoda pe care o doresc sa fie executata atunci cand adaug adnotatia mea
     public WebElement checkElementIsVisible(By element) {
@@ -60,23 +56,28 @@ public class LoginPage extends BasePage {
         return driver.findElement(ele);
     }
 
-    public void searchSmtgh() throws InterruptedException {
-        searchTxt.sendKeys("salutari");
-    }
 
-    @SneakyThrows
-    public void openNewTab() {
-        System.out.println("METHOD EXECUTED");
-
-        ((JavascriptExecutor) driver).executeScript("window.open(\"http://automationpractice.com/index.php\",\"_blank\");");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        searchTxt.sendKeys("salut");
-
-
+    public void searchText(String searchTerm) {
+        searchInput.simulateUserTyping(searchTerm);
     }
 
     public void showListSize() {
         productsList.forEach(System.out::println);
+    }
+
+
+    @Override
+    public void simulateUserTyping(String textToType, By locator) {
+
+    }
+
+    @Override
+    public void simulateUserTyping(String textToType) {
+
+    }
+
+    @Override
+    public WebElement pageElement(By locator) {
+        return null;
     }
 }

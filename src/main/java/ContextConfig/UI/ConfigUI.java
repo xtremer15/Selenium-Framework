@@ -8,7 +8,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 
 
@@ -62,4 +61,10 @@ public class ConfigUI {
         return new CartPage();
     }
 
+    @Bean
+    @Lazy
+    @Scope("cucumber-glue")
+    LogPage logPage() {
+        return new LogPage();
+    }
 }
