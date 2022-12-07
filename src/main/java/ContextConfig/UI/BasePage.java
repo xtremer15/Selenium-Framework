@@ -21,7 +21,7 @@ public abstract class BasePage implements Page {
 
     @PostConstruct
     private void init() throws Exception {
-        ExtendedPageFactory.initElements(this.getDriver(), this);
+        ExtendedPageFactory.initElements(driver, this);
         webDriverWait = new WebDriverWait(driver, 15);
 //        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
     }
@@ -35,18 +35,7 @@ public abstract class BasePage implements Page {
     }
 
 
-//    @Override
-//    public void simulateUserTyping(String textToType) {
-//        Arrays.stream(textToType.split("")).forEach((str) ->
-//        {
-//            this.pageElement().sendKeys(str);
-//            try {
-//                Thread.sleep(168L);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
+
 
 //    @Override
 //    public void simulateUserTyping(String textToType, By locator) {

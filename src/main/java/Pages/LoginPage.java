@@ -2,8 +2,9 @@ package Pages;
 
 
 import ContextConfig.UI.BasePage;
+import HTMLElements.Interfaces.Input;
+import Library.KeyBoard;
 import Utils.Interfaces.Button;
-import Utils.Interfaces.Implementation.ButtonEle;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,10 +21,10 @@ public class LoginPage extends BasePage {
     JavascriptExecutor javascriptExecutor;
 
     @FindBy(id = "search_query_top")
-    WebElement searchInput;
+    Input searchInput;
 
     @FindBy(css = "#contact-link > a")
-    ButtonEle contactBtn;
+    Button contactBtn;
 
     @FindBy(css = "#homefeatured li")
     private List<WebElement> productsList;
@@ -68,6 +69,10 @@ public class LoginPage extends BasePage {
 
     public void showListSize() {
         productsList.forEach(System.out::println);
+    }
+
+    public void typeText(String textToType) {
+        searchInput.simulateUserTyping(textToType);
     }
 
 

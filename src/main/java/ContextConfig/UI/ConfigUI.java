@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.springframework.context.annotation.*;
 
+import java.awt.*;
+
 
 @Configuration
 //@ConditionalOnProperty(name = "ui.runner.enabled", havingValue = "true")
@@ -61,4 +63,7 @@ public class ConfigUI {
         return new CartPage();
     }
 
+    @Bean
+    @Scope("cucumber-glue")
+    Robot robot() throws AWTException { return  new Robot();}
 }

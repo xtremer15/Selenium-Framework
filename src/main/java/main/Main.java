@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.*;
 
 public class Main {
+
+
     static String[] rowOptiosn = {"A", "B"};
     static List<String> testKeys = new ArrayList<>();
     static List<String> testValues = new ArrayList<>();
@@ -35,8 +37,11 @@ public class Main {
         selectElementsUsingHashMap(headerValuesAsText, tableBodyRowsData, "Age", "46", "28","61");
 
     }
+
+
 //SOLUTION USING HASHMAP
     private static void selectElementsUsingHashMap(List<String> headerValues, List<WebElement> bodyRowsData, String theadRowToSelect, String... elementsToSelect) {
+
         HashMap<List<String>, List<WebElement>> tableData = new HashMap<>();
         tableData.put(headerValues, bodyRowsData);
 
