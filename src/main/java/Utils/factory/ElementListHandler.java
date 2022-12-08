@@ -43,7 +43,7 @@ public class ElementListHandler implements InvocationHandler {
     /**
      * Executed on invoke of the requested proxy. Used to gather a list of wrapped WebElements.
      *
-     * @param o       object to invoke on
+     * @param o object to invoke on
      * @param method  method to invoke
      * @param objects parameters for method
      * @return return value from method

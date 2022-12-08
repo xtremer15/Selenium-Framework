@@ -8,17 +8,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class Hooks {
+import java.util.concurrent.TimeUnit;
 
+public class Hooks {
     @Autowired()
     WebDriver webDriver;
 
     @Before
     public void setup() {
-        webDriver.navigate().to("http://automationpractice.com/index.php");
+        webDriver.navigate().to("https://www.advantageonlineshopping.com/#/");
         webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public void chromeCapabilities() {

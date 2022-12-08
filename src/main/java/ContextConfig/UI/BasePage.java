@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,7 +24,6 @@ public abstract class BasePage implements Page {
     private void init() throws Exception {
         ExtendedPageFactory.initElements(driver, this);
         webDriverWait = new WebDriverWait(driver, 15);
-//        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
     }
 
     public WebDriver getDriver() {
@@ -33,26 +33,4 @@ public abstract class BasePage implements Page {
             return null;
         }
     }
-
-
-
-
-//    @Override
-//    public void simulateUserTyping(String textToType, By locator) {
-//        Arrays.stream(textToType.split("")).forEach((str) ->
-//        {
-//            pageElement(locator).sendKeys(str);
-//            try {
-//                Thread.sleep(168L);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-
-//    @Override
-//    public WebElement pageElement(By locator) {
-//        return driver.findElement(locator);
-//    }
-
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ThreadGuard;
 import org.springframework.context.annotation.*;
 
 import java.awt.*;
@@ -22,7 +23,7 @@ public class ConfigUI {
     @Scope("cucumber-glue")
     WebDriver webDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        return ThreadGuard.protect(new ChromeDriver());
     }
 
     @Bean
@@ -65,5 +66,7 @@ public class ConfigUI {
 
     @Bean
     @Scope("cucumber-glue")
-    Robot robot() throws AWTException { return  new Robot();}
+    Robot robot() throws AWTException {
+        return new Robot();
+    }
 }
