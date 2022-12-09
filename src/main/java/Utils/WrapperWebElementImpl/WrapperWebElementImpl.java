@@ -1,4 +1,4 @@
-package Utils.ExtendedWebElementImpl;
+package Utils.WrapperWebElementImpl;
 
 import Utils.Sleeper;
 import org.openqa.selenium.*;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ExtendedWebElementImpl implements ExtendedWebElement {
+public class WrapperWebElementImpl implements WrapperWebElement {
 
     protected WebElement element;
     protected By by;
@@ -29,7 +29,7 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
      * @param by      by locator to wrap WebElement
      * @param locator element locator
      */
-    public ExtendedWebElementImpl(final WebDriver driver, final WebElement element, final By by, final ElementLocator locator) {
+    public WrapperWebElementImpl(final WebDriver driver, final WebElement element, final By by, final ElementLocator locator) {
         this.driver = driver;
         this.element = element;
         this.by = by;
@@ -87,7 +87,7 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
 
     /**
      * @param textToSet text to set
-     * @see ExtendedWebElement#sendKeybyKey(String)
+     * @see WrapperWebElement#sendKeybyKey(String)
      */
     @Override
     public void sendKeybyKey(String textToSet) {
@@ -101,7 +101,7 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
     /**
      * @param timegap   time gap between each key stroke in millis
      * @param textToSet test to set
-     * @see ExtendedWebElement#sendKeybyKey(long, String)
+     * @see WrapperWebElement#sendKeybyKey(long, String)
      */
     @Override
     public void sendKeybyKey(long timegap, String textToSet) {
@@ -202,15 +202,15 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
     }
 
     @Override
-    public List<ExtendedWebElement> findAllBy(By by) {
+    public List<WrapperWebElement> findAllBy(By by) {
         waitUntilPresent();
-        return findElements(by).stream().map(element -> new ExtendedWebElementImpl(driver, element, by, locator)).collect(Collectors.toList());
+        return findElements(by).stream().map(element -> new WrapperWebElementImpl(driver, element, by, locator)).collect(Collectors.toList());
     }
 
     @Override
-    public ExtendedWebElement findBy(By by) {
+    public WrapperWebElement findBy(By by) {
         waitUntilPresent();
-        return new ExtendedWebElementImpl(driver, findElement(by), by, locator);
+        return new WrapperWebElementImpl(driver, findElement(by), by, locator);
     }
 
     /**
@@ -366,32 +366,32 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
     }
 
     @Override
-    public ExtendedWebElement waitUntilVisible() {
+    public WrapperWebElement waitUntilVisible() {
      return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilVisible(long timeOutInSeconds) {
+    public WrapperWebElement waitUntilVisible(long timeOutInSeconds) {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitByUntilVisible() {
+    public WrapperWebElement waitByUntilVisible() {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitByUntilVisible(long timeOutInSeconds) {
+    public WrapperWebElement waitByUntilVisible(long timeOutInSeconds) {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilPresent() {
+    public WrapperWebElement waitUntilPresent() {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilPresent(long timeOutInSeconds) {
+    public WrapperWebElement waitUntilPresent(long timeOutInSeconds) {
         return this;
     }
 
@@ -406,32 +406,32 @@ public class ExtendedWebElementImpl implements ExtendedWebElement {
     }
 
     @Override
-    public ExtendedWebElement waitUntilEnabled() {
+    public WrapperWebElement waitUntilEnabled() {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilEnabled(long timeOutInSeconds) {
+    public WrapperWebElement waitUntilEnabled(long timeOutInSeconds) {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilClickable() {
+    public WrapperWebElement waitUntilClickable() {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilClickable(long timeOutInSeconds) {
+    public WrapperWebElement waitUntilClickable(long timeOutInSeconds) {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilDisabled() {
+    public WrapperWebElement waitUntilDisabled() {
         return this;
     }
 
     @Override
-    public ExtendedWebElement waitUntilDisabled(long timeOutInSeconds) {
+    public WrapperWebElement waitUntilDisabled(long timeOutInSeconds) {
         return this;
     }
 

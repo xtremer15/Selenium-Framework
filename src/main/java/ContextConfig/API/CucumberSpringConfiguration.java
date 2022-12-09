@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = {ConfigAPI.class})
-@CucumberContextConfiguration
+//@CucumberContextConfiguration
 public class CucumberSpringConfiguration {
 
 }

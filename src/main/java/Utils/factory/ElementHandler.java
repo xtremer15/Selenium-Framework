@@ -1,6 +1,6 @@
 package Utils.factory;
 
-import Utils.ExtendedWebElementImpl.ExtendedWebElement;
+import Utils.WrapperWebElementImpl.WrapperWebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +25,7 @@ public class ElementHandler implements InvocationHandler {
      */
     public <T> ElementHandler(Class<T> interfaceType, ElementLocator locator) {
         this.locator = locator;
-        if (!ExtendedWebElement.class.isAssignableFrom(interfaceType)) {
+        if (!WrapperWebElement.class.isAssignableFrom(interfaceType)) {
             throw new RuntimeException("interface not assignable to Element.");
         }
 
@@ -35,7 +35,7 @@ public class ElementHandler implements InvocationHandler {
     public <T> ElementHandler(Class<T> interfaceType, ElementLocator locator, WebDriver driver) {
         this.locator = locator;
         this.driver = driver;
-        if (!ExtendedWebElement.class.isAssignableFrom(interfaceType)) {
+        if (!WrapperWebElement.class.isAssignableFrom(interfaceType)) {
             throw new RuntimeException("interface not assignable to Element.");
         }
 

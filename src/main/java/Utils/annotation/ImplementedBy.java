@@ -1,6 +1,6 @@
 package Utils.annotation;
 
-import Utils.ExtendedWebElementImpl.ExtendedWebElementImpl;
+import Utils.WrapperWebElementImpl.WrapperWebElementImpl;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ImplementedBy {
-    Class<?> value() default ExtendedWebElementImpl.class;
+    Class<?> value() default WrapperWebElementImpl.class;
 }

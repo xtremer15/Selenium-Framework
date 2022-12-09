@@ -1,7 +1,7 @@
 package HTMLElements;
 
 import HTMLElements.Interfaces.Input;
-import Utils.ExtendedWebElementImpl.ExtendedWebElementImpl;
+import Utils.WrapperWebElementImpl.WrapperWebElementImpl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.pagefactory.ElementLocator;
 
 import java.util.Arrays;
 
-public class InputImpl extends ExtendedWebElementImpl implements Input {
+public class InputImpl extends WrapperWebElementImpl implements Input {
     /**
      * Creates a Element for a given WebElement.
      *

@@ -1,7 +1,7 @@
 package Utils.factory;
 
-import Utils.ExtendedWebElementImpl.ExtendedWebElement;
-import Utils.ExtendedWebElementImpl.ExtendedWebElementImpl;
+import Utils.WrapperWebElementImpl.WrapperWebElement;
+import Utils.WrapperWebElementImpl.WrapperWebElementImpl;
 import Utils.annotation.ImplementedBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,7 +53,7 @@ public class ElementDecorator implements FieldDecorator {
 
         final WebDriver driverRef = driver;
 
-        if (field.getDeclaringClass() == ExtendedWebElementImpl.class) {
+        if (field.getDeclaringClass() == WrapperWebElementImpl.class) {
             return null;
         }
 
@@ -64,7 +64,7 @@ public class ElementDecorator implements FieldDecorator {
 
         Class<?> fieldType = field.getType();
         if (WebElement.class.equals(fieldType)) {
-            fieldType = ExtendedWebElement.class;
+            fieldType = WrapperWebElement.class;
         }
 
         if (WebElement.class.isAssignableFrom(fieldType)) {

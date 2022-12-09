@@ -1,7 +1,7 @@
 package Utils.factory;
 
 
-import Utils.ExtendedWebElementImpl.ExtendedWebElement;
+import Utils.WrapperWebElementImpl.WrapperWebElement;
 import Utils.annotation.ImplementedBy;
 
 public final class ImplementedByProcessor {
@@ -19,7 +19,7 @@ public final class ImplementedByProcessor {
         if (iface.isAnnotationPresent(ImplementedBy.class)) {
             ImplementedBy annotation = iface.getAnnotation(ImplementedBy.class);
             Class<?> clazz = annotation.value();
-            if (ExtendedWebElement.class.isAssignableFrom(clazz)) {
+            if (WrapperWebElement.class.isAssignableFrom(clazz)) {
                 return annotation.value();
             }
         }

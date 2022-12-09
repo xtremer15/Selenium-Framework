@@ -1,13 +1,13 @@
 package Utils.Interfaces.Implementation;
 
-import Utils.ExtendedWebElementImpl.ExtendedWebElementImpl;
+import Utils.WrapperWebElementImpl.WrapperWebElementImpl;
 import Utils.Interfaces.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.pagefactory.ElementLocator;
 
-public class ButtonEle extends ExtendedWebElementImpl implements Button {
+public class ButtonEle extends WrapperWebElementImpl implements Button {
     /**
      * Creates a Element for a given WebElement.
      *
