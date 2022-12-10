@@ -5,5 +5,5 @@
         <classes>
             <class name="runner.ui.UiRunner"/>
         </classes>
-    </test> <!-- Test -->
+    </test> <!-- TestBla -->
 </suite> <!-- Suite -->
