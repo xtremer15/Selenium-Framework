@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="6.605">
+    <testcase classname="Testing" name="Testing println" time="5.266">
+        <system-out><![CDATA[Given i will open the browser...............................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
