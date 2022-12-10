@@ -10,7 +10,6 @@ Annotations\FactoryExtendedWebElement.class
 Services\Service.class
 Steps\LoginStep.class
 elementHighLighter\ElementHighlighter$ElementHighlighterListener.class
-main\Main.class
 Utils\annotation\ImplementedBy.class
 Utils\factory\ElementDecorator.class
 HTMLElements\Interfaces\HTMLElement.class
@@ -27,6 +26,7 @@ Utils\Interfaces\Button.class
 runner\ui\UiRunner.class
 elementHighLighter\ElementHighlighter.class
 elementHighLighter\HowToHighlightElementsBeingUsedTest.class
+main\TestGround.class
 Utils\WrapperWebElementImpl\WrapperWebElementImpl.class
 ContextConfig\UI\Hooks.class
 Steps\CartPageStep.class

@@ -19,12 +19,12 @@ public class HowToHighlightElementsBeingUsedTest {
         see which elements are being used.
      */
 
-    @BeforeAll
+//    @BeforeAll
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
-    @Test
+//    @Test
     public void simpleHighlightWithDirectClass() {
 
 
@@ -61,7 +61,7 @@ public class HowToHighlightElementsBeingUsedTest {
         driver.close();
     }
 
-    @Test
+//    @Test
     public void highlightWithEventFiringWebDriver() {
         WebDriver driver = new ElementHighlighter(new ChromeDriver(), "pink").getWrappedDriver();
 //        driver = new ChromeDriver();

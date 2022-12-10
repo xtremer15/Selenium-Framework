@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.*;
 
-public class Main {
+public class TestGround {
 
 
     static String[] rowOptiosn = {"A", "B"};

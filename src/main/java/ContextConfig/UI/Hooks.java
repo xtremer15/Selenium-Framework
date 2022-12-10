@@ -1,6 +1,7 @@
 package ContextConfig.UI;
 
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
@@ -39,5 +40,11 @@ public class Hooks {
         chromeOptions.getBrowserName();
         chromeOptions.getVersion();
         chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT_AND_NOTIFY);
+    }
+
+    @After
+    public void Quit() {
+        webDriver.close();
+        webDriver.quit();
     }
 }
