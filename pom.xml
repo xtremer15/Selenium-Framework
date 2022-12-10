@@ -23,6 +23,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -205,14 +212,4 @@
             </build>
         </profile>
     </profiles>
-    <!--    <build>-->
-    <!--            <sourceDirectory>src/main/java</sourceDirectory>-->
-    <!--            <testSourceDirectory>src/test/java/</testSourceDirectory>-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.springframework.boot</groupId>-->
-    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-    <!--    </build>-->
 </project>
