@@ -1,0 +1,47 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-12-10T01:59:19.760Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3691775700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "ContextConfig.UI.Hooks.setup()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Testing println",
+        "description": "",
+        "id": "testing;testing-println",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 850535700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "i will open the browser",
+            "match": {
+              "location": "Steps.LoginStep.i_will_open_the_browser()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Testing",
+    "description": "",
+    "id": "testing",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/ui/Test.feature",
+    "tags": []
+  }
+]
