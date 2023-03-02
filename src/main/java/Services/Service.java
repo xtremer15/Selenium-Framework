@@ -11,6 +11,8 @@ public class Service {
 
     RequestSpecification httpRequest = RestAssured.given();
 
+    private String name ="tito";
+    private String pass =  "ceva";
 
 
     public ValidatableResponse httpGET(HashMap<String, Integer> params) {
@@ -22,4 +24,12 @@ public class Service {
                 .then().assertThat().statusCode(200);
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPass() {
+        return pass;
+    }
 }

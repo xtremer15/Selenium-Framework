@@ -4,6 +4,7 @@ package Pages;
 import ContextConfig.UI.BasePage;
 import HTMLElements.Interfaces.Input;
 import Library.KeyBoard;
+import Services.Service;
 import Utils.Interfaces.Button;
 import Utils.Sleeper;
 import org.openqa.selenium.*;
@@ -15,6 +16,9 @@ import java.util.List;
 
 
 public class LoginPage extends BasePage {
+
+    Service newSvc = new Service();
+
     @Autowired
     WebDriver driver;
 

@@ -20,7 +20,8 @@ public class Hooks {
 
     @Before
     public void setup() {
-        webDriver.navigate().to("https://www.advantageonlineshopping.com/#/");
+//        webDriver.navigate().to("https://www.advantageonlineshopping.com/#/");
+        webDriver.navigate().to("https://eviltester.github.io/synchole/collapseable.html");
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
@@ -44,7 +45,7 @@ public class Hooks {
 
     @After
     public void Quit() {
-        webDriver.close();
-        webDriver.quit();
+//        webDriver.close();
+//        webDriver.quit();
     }
 }
