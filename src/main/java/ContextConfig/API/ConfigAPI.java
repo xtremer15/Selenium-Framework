@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 
-@Configuration
+//@Configuration
 public class ConfigAPI {
 
     @Bean

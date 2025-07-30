@@ -1,9 +1,6 @@
 package elementHighLighter;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class HighlightElement {
 
@@ -15,6 +12,7 @@ public class HighlightElement {
 
     public HighlightElement(final WebDriver driver,
                             final String backgroundColour) {
+        WebElement btn = driver.findElement(By.id("path"));
         this.driver = driver;
         this.backgroundColour = backgroundColour;
     }
@@ -57,4 +55,5 @@ public class HighlightElement {
             }
         }
     }
+
 }

@@ -299,7 +299,7 @@ public class WrapperWebElementImpl implements WrapperWebElement {
 
     @Override
     public WebDriverWait waitForCondition() {
-        return new WebDriverWait(getDriver(), 10);
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(10));
     }
 
     @Override
@@ -319,7 +319,7 @@ public class WrapperWebElementImpl implements WrapperWebElement {
     }
 
     public WebDriverWait waitForCondition(long timeOutInSeconds) {
-        return new WebDriverWait(getDriver(), timeOutInSeconds);
+        return new WebDriverWait(getDriver(), Duration.of(timeOutInSeconds, java.time.temporal.ChronoUnit.SECONDS));
     }
 
 
@@ -360,7 +360,7 @@ public class WrapperWebElementImpl implements WrapperWebElement {
         try {
             WebElement element = getElement();
             return (element != null) && (element.isDisplayed());
-        } catch (ElementNotVisibleException | NoSuchElementException | StaleElementReferenceException e) {
+        } catch (ElementNotInteractableException | NoSuchElementException | StaleElementReferenceException e) {
             return false;
         }
     }
@@ -453,7 +453,7 @@ public class WrapperWebElementImpl implements WrapperWebElement {
             }
             element.isDisplayed();
             return true;
-        } catch (ElementNotVisibleException e) {
+        } catch (ElementNotInteractableException e) {
             return true;
         } catch (NotFoundException e) {
             return false;

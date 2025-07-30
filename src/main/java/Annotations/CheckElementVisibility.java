@@ -21,7 +21,7 @@ public @interface CheckElementVisibility {
 
     public static class CheckElementBuilder extends AbstractExtendedWebElement {
         @Override
-        public boolean isVisible(Object annotation, Field field) {
+        public boolean isVisible(Annotation annotation, Field field) {
             CheckElementVisibility annotationType = (CheckElementVisibility) annotation;
             System.out.println("Am facut actiunea din adnotatie si elementul este prezent");
             WebElement element = getElement(annotationType);

@@ -12,6 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
@@ -20,26 +21,25 @@ public class Hooks {
 
     @Before
     public void setup() {
-//        webDriver.navigate().to("https://www.advantageonlineshopping.com/#/");
-        webDriver.navigate().to("https://eviltester.github.io/synchole/collapseable.html");
+        this.chromeCapabilities();
+        this.chromeOptions();
+        webDriver.navigate().to("https://angular-login-module.vercel.app/login");
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     public void chromeCapabilities() {
-
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        ChromeOptions capabilities = new ChromeOptions();
         capabilities.getCapabilityNames();
-        capabilities.acceptInsecureCerts();
+        capabilities.setAcceptInsecureCerts(true);
+
     }
 
     public void chromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.EAGER);
-        chromeOptions.setAcceptInsecureCerts(true);
-        chromeOptions.getPlatform();
+        chromeOptions.setAcceptInsecureCerts(false);
         chromeOptions.getBrowserName();
-        chromeOptions.getVersion();
         chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT_AND_NOTIFY);
     }
 

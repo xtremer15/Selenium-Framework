@@ -48,7 +48,11 @@ public class ExtendedPageFactory {
                 return constructor.newInstance(driver);
             } catch (NoSuchMethodException e) {
                 try {
-                    return pageClassToProxy.newInstance();
+                    Constructor<T> constructor = pageClassToProxy.getDeclaredConstructor();
+                    constructor.setAccessible(true);
+                    return constructor.newInstance();
+                    //The below is replaced by the above
+//                    return pageClassToProxy.newInstance();
                 } catch (InstantiationException ie) {
                     throw new Exception("Failed to create instance of: " + pageClassToProxy.getName());
                 }

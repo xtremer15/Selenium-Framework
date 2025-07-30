@@ -13,8 +13,9 @@ public class Hooks {
     @Value("${baseURL:https://fakerapi.it/api/v1/}")
     private String baseURL;
 
-    @Before
+//    @Before
     public void setup() {
+        System.out.println("called setup api");
         RestAssured.baseURI = baseURL;
         RestAssured.basePath = basePath;
     }

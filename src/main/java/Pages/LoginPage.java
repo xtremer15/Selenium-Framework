@@ -17,24 +17,16 @@ import java.util.List;
 
 public class LoginPage extends BasePage {
 
-    Service newSvc = new Service();
-
     @Autowired
     WebDriver driver;
 
-    @FindBy(id = "search_query_top")
-    Input searchInput;
+    @FindBy(xpath = "//label[text()=\"User\"]/preceding-sibling::input")
+    Input userName;
 
-    @FindBy(css = "#contact-link > a")
-    Button contactBtn;
-
-    @FindBy(css = "#homefeatured li")
-    private List<WebElement> productsList;
-
-
-    @FindBy(id = "shoppingCartLink")
-    private Button shoppingCartBTN;
-
+    @FindBy(xpath = "//label[text()=\"Password\"]/preceding-sibling::input")
+    Input password;
+    @FindBy(css = "button[type=\"submit\"]")
+    Button loginBtn;
 
     private By contact = By.cssSelector("#contact-link > a");
     private By searchInpt = By.id("search_query_top");
@@ -44,26 +36,14 @@ public class LoginPage extends BasePage {
         return contact;
     }
 
-    public void clickShoppingCart() {
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(shoppingCartBTN));
-        shoppingCartBTN.click();
+    public void clickLogin() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(loginBtn));
+        loginBtn.click();
     }
 
-    public WebElement findEle(By ele) {
-        return driver.findElement(ele);
-    }
-
-
-    public void clickContact() {
-        contactBtn.click();
-    }
-
-    public void showListSize() {
-        productsList.forEach(System.out::println);
-    }
 
     public void typeText(String textToType) {
-        searchInput.simulateUserTyping(textToType);
+        userName.simulateUserTyping(textToType);
         Sleeper.sleep(200000L);
     }
 }

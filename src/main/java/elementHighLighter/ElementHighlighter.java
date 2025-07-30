@@ -1,59 +1,43 @@
 package elementHighLighter;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WrapsDriver;
-import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.events.WebDriverListener;
+import org.openqa.selenium.support.events.EventFiringDecorator;
 
 public class ElementHighlighter implements WrapsDriver {
-    EventFiringWebDriver driver;
 
-    public ElementHighlighter(final WebDriver aDriver,
-                              final String desiredBackgroundColour) {
+    private final WebDriver decoratedDriver;
 
-        driver = new EventFiringWebDriver(aDriver);
-        driver.register(new ElementHighlighterListener(
-                driver, desiredBackgroundColour));
+    public ElementHighlighter(final WebDriver baseDriver, final String desiredBackgroundColour) {
+        this.decoratedDriver = new EventFiringDecorator(new ElementHighlighterListener(desiredBackgroundColour)).decorate(baseDriver);
     }
 
     @Override
     public WebDriver getWrappedDriver() {
-        return driver;
+        return decoratedDriver;
     }
 
-    private class ElementHighlighterListener extends AbstractWebDriverEventListener {
+    private static class ElementHighlighterListener implements WebDriverListener {
+        private final HighlightElement highlighter;
 
-        HighlightElement highlighter;
-
-        public ElementHighlighterListener(WebDriver driver,
-                                          final String highlightColour) {
-
-            highlighter = new HighlightElement(driver, highlightColour);
+        public ElementHighlighterListener(final String highlightColour) {
+            // Driver will be passed later when highlight is used
+            this.highlighter = new HighlightElement(null, highlightColour);
         }
 
         @Override
-        public void beforeClickOn(final WebElement element, final WebDriver driver) {
+        public void beforeClick(WebElement element) {
             highlighter.highlight(element);
-            super.beforeClickOn(element, driver);
+        }
+
+        public void beforeChangeValueOf(WebElement element, CharSequence[] keysToSend) {
+            highlighter.highlight(element);
         }
 
         @Override
-        public void beforeChangeValueOf(final WebElement element,
-                                        final WebDriver driver,
-                                        final CharSequence[] keysToSend) {
-
-            highlighter.highlight(element);
-            super.beforeChangeValueOf(element, driver, keysToSend);
-        }
-
-        @Override
-        public void afterFindBy(final By by, final WebElement element,
-                                final WebDriver driver) {
-
-            highlighter.highlight(element);
-            super.afterFindBy(by, element, driver);
+        public void afterFindElement(WebDriver driver, By locator, WebElement result) {
+//            highlighter.setDriver(driver); // Set the driver here
+            highlighter.highlight(result);
         }
     }
 }

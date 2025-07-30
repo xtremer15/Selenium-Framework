@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,10 +20,10 @@ public class main {
     public static void main(String[] args) throws URISyntaxException {
         WebDriverManager.chromedriver().setup();
         WebDriver webDriver = new ChromeDriver();
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 15);
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
         webDriver.navigate().to("https://eviltester.github.io/synchole/collapseable.html");
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
 //        Actions actions = new Actions(webDriver);
 ////        WebElement body = webDriver.findElement(By.cssSelector("#collapsable .synchole"));

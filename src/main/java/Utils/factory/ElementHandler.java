@@ -68,9 +68,10 @@ public class ElementHandler implements InvocationHandler {
         if ("getWrappedElement".equals(method.getName())) {
             return element;
         }
-        Constructor<?> cons = wrappingType.getConstructor(WebDriver.class, WebElement.class, By.class, ElementLocator.class);
+        Constructor<?> cons;
 
         try {
+            cons = wrappingType.getConstructor(WebDriver.class, WebElement.class, By.class, ElementLocator.class);
             Object thing = cons.newInstance(driver, element, by, locator);
             return method.invoke(wrappingType.cast(thing), objects);
         } catch (InvocationTargetException e) {

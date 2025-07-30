@@ -8,8 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HowToHighlightElementsBeingUsedTest {
 
@@ -18,13 +21,15 @@ public class HowToHighlightElementsBeingUsedTest {
         were being used. How can we replicate this functionality in WebDriver to
         see which elements are being used.
      */
-
-//    @BeforeAll
+static WebDriver driver;
+    @BeforeAll
     public static void setupClass() {
         WebDriverManager.chromedriver().setup();
+        driver = new ElementHighlighter(new ChromeDriver(), "pink").getWrappedDriver();
+        driver = new ChromeDriver();
     }
 
-//    @Test
+    @Test
     public void simpleHighlightWithDirectClass() {
 
 
@@ -54,7 +59,7 @@ public class HowToHighlightElementsBeingUsedTest {
         button.click();
 
         Assertions.assertEquals("Bob",
-                new WebDriverWait(driver, 10).
+                new WebDriverWait(driver, Duration.ofSeconds(15)).
                         until(ExpectedConditions.elementToBeClickable(
                                 By.id("_valueusername"))).getText());
 
@@ -63,9 +68,7 @@ public class HowToHighlightElementsBeingUsedTest {
 
 //    @Test
     public void highlightWithEventFiringWebDriver() {
-        WebDriver driver = new ElementHighlighter(new ChromeDriver(), "pink").getWrappedDriver();
-//        driver = new ChromeDriver();
-
+        driver = new FirefoxDriver();
 
         driver.get("https://testpages.herokuapp.com/styled/index.html");
 
@@ -85,7 +88,7 @@ public class HowToHighlightElementsBeingUsedTest {
         pauseToAllowVisibility();
         button.click();
 
-        Assertions.assertEquals("Bob", new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("_valueusername"))).getText());
+        Assertions.assertEquals("Bob", new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("_valueusername"))).getText());
 
 //        driver.close();
     }

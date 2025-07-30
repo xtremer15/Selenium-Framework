@@ -10,7 +10,7 @@ import org.testng.annotations.DataProvider;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/ui"},
+        features = {"src/test/java/features/ui"},
         glue = {"ContextConfig/UI", "Steps"},
         publish = false,
         plugin = {"pretty", "junit:target/junit-reports/", "json:target/cucumber/cucumber-reports.json"}

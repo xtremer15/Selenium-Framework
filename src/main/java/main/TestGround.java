@@ -2,6 +2,7 @@ package main;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -22,24 +23,30 @@ public class TestGround {
 
     public static void main(String[] args) {
         ChromeDriver chromeDriver = getChromeDriver();
-
-        WebElement tableBody = chromeDriver.findElement(By.cssSelector(tbody));
-        WebElement tableHead = chromeDriver.findElement(By.cssSelector(thead));
-        List<WebElement> tableHeadRows = chromeDriver.findElements(By.cssSelector(theadRows));
-        List<WebElement> tableBodyRowsData = chromeDriver.findElements(By.cssSelector(tbodyRowsData));
-        List<String> headerValuesAsText = new ArrayList<>();
-//        List<String> bodyRowsTxt = new ArrayList<>();
-        tableHeadRows.forEach(ele -> headerValuesAsText.add(ele.getText()));
-//        tableBodyRowsData.forEach(ele -> bodyRowsTxt.add(ele.getText()));
-//        traversRowElements(tableBodyRowsData, tableHeadRows, "Office", "London", "Tokyo");
-
-
-        selectElementsUsingHashMap(headerValuesAsText, tableBodyRowsData, "Age", "46", "28","61");
+        chromeDriver.navigate().to("https://www.automationtesting.co.uk/dropdown.html");
+        chromeDriver.manage().window().maximize();
+//        System.out.println( chromeDriver.findElement(By.xpath("//*[contains(normalize-space(text()), \"One\" )]")));
+//        chromeDriver.findElement(By.xpath("//*[contains(normalize-space(text()), \"One\" )]")).click();
+//        radioButtonToSelect("One",chromeDriver);
+//        radioButtonToSelect("Blue",chromeDriver);
+//        radioButtonToSelect("Animals",chromeDriver);
+//        WebElement tableBody = chromeDriver.findElement(By.cssSelector(tbody));
+//        WebElement tableHead = chromeDriver.findElement(By.cssSelector(thead));
+//        List<WebElement> tableHeadRows = chromeDriver.findElements(By.cssSelector(theadRows));
+//        List<WebElement> tableBodyRowsData = chromeDriver.findElements(By.cssSelector(tbodyRowsData));
+//        List<String> headerValuesAsText = new ArrayList<>();
+////        List<String> bodyRowsTxt = new ArrayList<>();
+//        tableHeadRows.forEach(ele -> headerValuesAsText.add(ele.getText()));
+////        tableBodyRowsData.forEach(ele -> bodyRowsTxt.add(ele.getText()));
+////        traversRowElements(tableBodyRowsData, tableHeadRows, "Office", "London", "Tokyo");
+//
+//
+//        selectElementsUsingHashMap(headerValuesAsText, tableBodyRowsData, "Age", "46", "28","61");
 
     }
 
 
-//SOLUTION USING HASHMAP
+    //SOLUTION USING HASHMAP
     private static void selectElementsUsingHashMap(List<String> headerValues, List<WebElement> bodyRowsData, String theadRowToSelect, String... elementsToSelect) {
 
         HashMap<List<String>, List<WebElement>> tableData = new HashMap<>();
@@ -71,7 +78,7 @@ public class TestGround {
         return chromeDriver;
     }
 
-//    SOLUTION USING 2 LISTS
+    //    SOLUTION USING 2 LISTS
     private static void traversRowElements(List<WebElement> bodyElementsToCheck, List<WebElement> headerOptions, String headerOption, String... bodyOptions) {
         headerOptions.forEach(option -> {
             if (option.getText().equals(headerOption)) {

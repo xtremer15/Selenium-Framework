@@ -6,7 +6,7 @@ import io.restassured.RestAssured;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration(classes = {ConfigAPI.class})
+//@ContextConfiguration(classes = {ConfigAPI.class})
 //@CucumberContextConfiguration
 public class CucumberSpringConfiguration {
 

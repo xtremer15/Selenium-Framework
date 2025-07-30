@@ -3,6 +3,7 @@ package ContextConfig.UI;
 import HTMLElements.Button;
 import Pages.CartPage;
 import Pages.LoginPage;
+import io.cucumber.spring.CucumberContextConfiguration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,9 +14,7 @@ import org.springframework.context.annotation.*;
 
 import java.awt.*;
 
-
 @Configuration
-//@ConditionalOnProperty(name = "ui.runner.enabled", havingValue = "true")
 public class ConfigUI {
 
     @Bean
@@ -32,7 +31,6 @@ public class ConfigUI {
     JavascriptExecutor javascriptExecutor() {
         return (JavascriptExecutor) webDriver();
     }
-
 
     @Bean
     @Lazy
